@@ -38,11 +38,14 @@ Each line contains a track id, song id, artist name, and the song title, such as
 
 You are only concerned with the last field, the song title. As your first task, you will write a regular expression that extracts the song title and stores it as the variable `title`. You will discard all other information.
 
-You may find this site useful in debugging your regular expression: \url{http://regexpal.com/}. It allows you to test your regular expressions on a block of text that your provide.
+You may find this site useful in debugging your regular expression: http://regexpal.com/. It allows you to test your regular expressions on a block of text that your provide.
 
 ## *Step 2:* Eliminate superfluous text
 The song title, however, is quite noisy, often containing additional information beyond the song title. Consider this example:
-```Strangers in the Night (Remastered Album Version) [The Frank Sinatra Collection]```
+
+```
+Strangers in the Night (Remastered Album Version) [The Frank Sinatra Collection]
+```
 
 You need to perform some pre-processing in order to clean up the song titles. You will write a series of regular expressions that match a block of text and replace it with nothing.
 
@@ -58,29 +61,29 @@ Repeat this for patterns beginning with the left bracket, the left curly brace, 
 
 Note that the above lists the left quote (on the tilde key above tab) and not the apostrophe (located left of the enter key). This is a very important distinction. We do no want to omit the apostrophe as it allows contractions.
 
-Many of these characters have special meanings in the choosen languages. Make sure you properly escape symbols when necessary. Failing to escape characters properly will be the most common mistake made in this lab.
+Many of these characters have special meanings in Ruby. Make sure you properly escape symbols when necessary. Failing to escape characters properly will be the most common mistake made in this lab.
 
 The last one listed above is an abbreviation `feat.`-- short for featuring and followed by artist information you do not need to retain. For example, `Sunbeam feat.  Vishal Vaid` becomes `Sunbeam`.
 
-In most cases, these symbols indicate additional information that need not concern us for this exercise. The above steps will very occasionally corrupt a valid song title that actually contains, for example, paerntheses in the song title. Do not worry about these infrequent cases and uniformly carry out the procedure listed above. These steps will catch and fix the vas majority of irregularities in the song titles.
+In most cases, these symbols indicate additional information that need not concern us for this exercise. The above steps will very occasionally corrupt a valid song title that actually contains, for example, parentheses in the song title. Do not worry about these infrequent cases and uniformly carry out the procedure listed above. These steps will catch and fix the vast majority of irregularities in the song titles.
 
 ## *Step 3:* Eliminate punctuation
 
-Next, find and delte the following typical punctuation marks:
+Next, find and delete the following typical punctuation marks:
 
 ```
  ?  ¿  !  ¡  .  ;  &  @  %  #  |
 ```
 
-Unlike before, delte only the synmbol itself and leave all of the text that follows. Be sure to do a 'global' match in order to replace all instances of the punctuation mark. Be careful to match the period itself as the symbol ``.'' has a special meaning in regular expressions. This is true for many of the symbols above. Again, refer to a list of escape characters specific to the language you selected.
+Unlike before, delete only the symbol itself and leave all of the text that follows. Be sure to do a 'global' match in order to replace all instances of the punctuation mark. Be careful to match the period itself as the symbol ``.'' has a special meaning in regular expressions. This is true for many of the symbols above. Again, refer to a list of escape characters specific to the language you selected.
 
 ## *Step 4:* Filter out non-English characters
 
-Lastly, ignore all song titles that contain a non-English character (e.g., \'{a}, \`{i}, \"{o}, etc.). (Hint: it may be easier to match titles that contain only English characters than to match titles that contain non-English characters). I define ``English characters'' to include the word metacharacter definition (typically `\w` and `\s` in most languages) as well as the apostrophe character. This process will allow a few non-English song titles to creep through (e.g., *amore mio}), but will eliminate the majority of non-English titles.
+Lastly, ignore all song titles that contain a non-English character (e.g., \'{a}, \`{i}, \"{o}, etc.). (Hint: it may be easier to match titles that contain only English characters than to match titles that contain non-English characters). I define ``English characters'' to include the word meta-character definition (typically `\w` and `\s` in most languages) as well as the apostrophe character. This process will allow a few non-English song titles to creep through (e.g., *amore mio}), but will eliminate the majority of non-English titles.
 
 ## *Step 5:* Set to lowercase
 
-Convert all words in teh sentence to lowercase. Each of these languages has a special function to do this for you.
+Convert all words in the sentence to lowercase. Each of these languages has a special function to do this for you.
 
 # Self-Check}
 
@@ -90,7 +93,7 @@ N.B.: If you are close to my number (within 10's), that is sufficient. If you ar
  
 # Bi-gram Counts}
 
-A bigram is a sequence of two adjacent words in a text. The frequency distribution of bigrams in text(s) is commonly used in statistical natural language processing (see \url{http://en.wikipedia.org/wiki/Bigram}). Across this corpus of one million song titles, you will count all the bigram words.
+A bigram is a sequence of two adjacent words in a text. The frequency distribution of bigrams in text(s) is commonly used in statistical natural language processing (see http://en.wikipedia.org/wiki/Bigram). Across this corpus of one million song titles, you will count all the bigram words.
 
 First, you need to split the title string into individual words. Next, you should use one or more data structures to keep track of these word pair counts. That is, for every word, you must keep track of the count for each word that follows it. I strongly recommend you design your data structure for fast retrieval. Put some thought into which data structure to choose. Once you have decided, you can compare your choice to mine.
 
@@ -105,12 +108,10 @@ In the `a_tracks` dataset:
 * The most common word to follow **"love"** is **"song"**
 * There are 80 distinct words that follow the word **"love"**.
 * The word **"song"** follows **"love"** 33 times.
- 
-\end{tcolorbox}
 
 # Building a Song Title
 
-Now you are going to build a probabilistic song title. First begin by creating a function ``most common word'' `mcw()`. This function will take in one argument, some word, and returns the word that most often followed that word in the dataset. If you find a tie, randomly select one value. For example (in ruby), the line `puts mcw("computer")` should give you your answer to Question 4.
+Now you are going to build a probabilistic song title. First begin by creating a function "most common word" `mcw()`. This function will take in one argument, some word, and returns the word that most often followed that word in the dataset. If you find a tie, randomly select one value. For example, the line `puts mcw("computer")` should give you your answer to Question 4.
 
 Now you are going to use this function to string together a song title. Beginning with a given starting word, write an iterative structure that strings together words that most commonly follow each other in the dataset. Continue until a word does not have a successive word in the dataset, or the count of words in your title reaches 20.
 
@@ -124,8 +125,6 @@ Use your data structure(s) on the `unique_tracks` dataset to answer these and al
 4. Which word most often follows the word **"computer"**?
 5. How many times does this word follow **"computer"**?
  
-\end{tcolorbox}
-
 # User Control
 Now add loop that repeatedly queries the user for a starting word until they choose to quit. I started it for you in the template. Your program will ask:
 
@@ -154,7 +153,8 @@ For the `a_tracks` dataset:
 
 # Stop Words
 
-Next try to fix the aforementioned problem(s) you observed in Question 10. In NLP, ``stop words'' are common words that are often filtered out, such as common function words and articles. Before taking your bigram counts, filter out the following common stop words from the song title:
+Next try to fix the aforementioned problem(s) you observed in Question 10. In NLP, stop words are common words that are often filtered out, such as common function words and articles. Before taking your bigram counts, filter out the following common stop words from the song title:
+
 ```
  `a, an, and, by, for, from, in, of, on, or, out, the, to, with`
 ```
@@ -178,27 +178,24 @@ Implement a "fix" for the problematic phenomenon you observed in Question 6. If 
 18. Using the starting word **"bob"**, what song title do you get?
 19. Using the starting word **"bob"** again, do you get the same title? If no, what do you get? Try it a third time. Explain why the title might differ each time.
 20. Share your favorite song title that you have found.
- 
-\end{tcolorbox}
 
 # Troubleshooting
 This lab requires an independent study of one of the three languages specified: Ruby, Go, or Python. You are encouraged to use any web tutorials and resources to learn this language. Given the size of the class, I will not be able to debug your code for you. Please do not send panicked emails requesting I fix your bug for you. Allow yourself plenty of time, and use patience, perseverance, and the internet to debug your code.
 
 # Lab Questions
 
-21. Which language did you select and why did you select it?
-22. Name something you like about the language you selected. Explain.
-23. Name something you dislike about the language you selected. Explain.
-24. Did you enjoy this lab? Which aspects dis you like and/or dislike?
-25. Approximately how many hours did you spend on this lab?
-26. Do you think you would use the language you selected again? For whicy type(s) of project(s)?
+21. Name something you like about Ruby. Explain.
+22. Name something you dislike about Ruby. Explain.
+23. Did you enjoy this lab? Which aspects dis you like and/or dislike?
+24. Approximately how many hours did you spend on this lab?
+25. Do you think you would use Ruby again? For which type(s) of project(s)?
 
 # Submission
 
-Each student will complete and submit this assignment individually or in a two-person team. Do not consult with others. However, you are encouraged to use the internet to learn any aspect of Prolog you need to complete the assignment, but not to answer the questions asked in this lab.
+Each student will complete and submit this assignment individually or in a two-person team. Do not consult with others. However, you are encouraged to use the internet to learn any aspect of Ruby you need to complete the assignment, but not to answer the questions asked in this lab.
 
 Comment your program heavily. Intelligent comments and a clean, readable formatting of your code accounts for 20% of your grade.
 
-Save the final version of your program and zip the source code into a file named `[lastname]_[firstname].prolog2.zip`. Type your lab questions in plain text as `[lastname]_[firstname].prolog2.txt`. Include your name in the text file.
+Save the final version of your program and zip the source code into a file named `[lastname]_[firstname].ruby_lab.zip`. Type your lab questions in plain text as `[lastname]_[firstname].ruby_lab.txt`. Include your name in the text file.
 
 We must be able to run your program from the command line with no arguments.
