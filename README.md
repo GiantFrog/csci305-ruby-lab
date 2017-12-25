@@ -79,7 +79,7 @@ Unlike before, delete only the symbol itself and leave all of the text that foll
 
 ## *Step 4:* Filter out non-English characters
 
-Lastly, ignore all song titles that contain a non-English character (e.g., á, ı̀, ö, etc.). (Hint: it may be easier to match titles that contain only English characters than to match titles that contain non-English characters). I define "English characters" to include the word meta-character definition (typically `\w` and `\s` in most languages) as well as the apostrophe character. This process will allow a few non-English song titles to creep through (e.g., *amore mio), but will eliminate the majority of non-English titles.
+Lastly, ignore all song titles that contain a non-English character (e.g., á, ı̀, ö, etc.). (Hint: it may be easier to match titles that contain only English characters than to match titles that contain non-English characters). I define "English characters" to include the word meta-character definition (typically `\w` and `\s` in most languages) as well as the apostrophe character. This process will allow a few non-English song titles to creep through (e.g., *amore mio*), but will eliminate the majority of non-English titles.
 
 ## *Step 5:* Set to lowercase
 
