@@ -69,7 +69,7 @@ In most cases, these symbols indicate additional information that need not conce
 Next, find and delte the following typical punctuation marks:
 
 ```
- `?  ` \textquestiondown `  !  ` \textexclamdown `  .  ;  &  @  %  #  `$\vert$
+ ?  &iquest;  !  ` \textexclamdown `  .  ;  &  @  %  #  `$\vert$
 ```
 
 Unlike before, delte only the synmbol itself and leave all of the text that follows. Be sure to do a 'global' match in order to replace all instances of the punctuation mark. Be careful to match the period itself as the symbol ``.'' has a special meaning in regular expressions. This is true for many of the symbols above. Again, refer to a list of escape characters specific to the language you selected.
