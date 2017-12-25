@@ -14,7 +14,7 @@ For this lab you will be using Ruby.
 
 This lab will make use of a dataset containing a million song titles. This dataset is used in various machine learning experiments and is provided by the Laboratory for the Recognition and Organization of Speech and Audio at Columbia University. I have added this dataset to the repository under the name `unieque_tracks.txt`
 
-In addition, I have created a subset of this dataset containing only song titles that begin with the letter ``A''. We will use this file for debugging and testing purposes. This can be found in the file `a_tracks.txt`.
+In addition, I have created a subset of this dataset containing only song titles that begin with the letter "A". We will use this file for debugging and testing purposes. This can be found in the file `a_tracks.txt`.
 
 # File Templates
 
@@ -75,11 +75,11 @@ Next, find and delete the following typical punctuation marks:
  ?  ¿  !  ¡  .  ;  &  @  %  #  |
 ```
 
-Unlike before, delete only the symbol itself and leave all of the text that follows. Be sure to do a 'global' match in order to replace all instances of the punctuation mark. Be careful to match the period itself as the symbol ``.'' has a special meaning in regular expressions. This is true for many of the symbols above. Again, refer to a list of escape characters specific to the language you selected.
+Unlike before, delete only the symbol itself and leave all of the text that follows. Be sure to do a 'global' match in order to replace all instances of the punctuation mark. Be careful to match the period itself as the symbol "." has a special meaning in regular expressions. This is true for many of the symbols above. Again, refer to a list of escape characters specific to the language you selected.
 
 ## *Step 4:* Filter out non-English characters
 
-Lastly, ignore all song titles that contain a non-English character (e.g., á, ı̀, ö, etc.). (Hint: it may be easier to match titles that contain only English characters than to match titles that contain non-English characters). I define ``English characters'' to include the word meta-character definition (typically `\w` and `\s` in most languages) as well as the apostrophe character. This process will allow a few non-English song titles to creep through (e.g., *amore mio), but will eliminate the majority of non-English titles.
+Lastly, ignore all song titles that contain a non-English character (e.g., á, ı̀, ö, etc.). (Hint: it may be easier to match titles that contain only English characters than to match titles that contain non-English characters). I define "English characters" to include the word meta-character definition (typically `\w` and `\s` in most languages) as well as the apostrophe character. This process will allow a few non-English song titles to creep through (e.g., *amore mio), but will eliminate the majority of non-English titles.
 
 ## *Step 5:* Set to lowercase
 
