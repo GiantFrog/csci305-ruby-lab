@@ -43,12 +43,22 @@ In addition, I have created a subset of this dataset containing only song titles
 
 # File Templates
 
-First, rename this file to `[LastName].[FirstName].open_lab.rb` for ruby, `[LastName].[FirstName].open_lab.go` for go, and `[LastName].[FirstName].open_lab.py` for python, where `[LastName]` and `[FirstName]` are your last and first names, respectively. Do not include the brackets `[ ]` in your file name. Secondly, edit the header comments in the file to reflect your name.
+There are four files of concern in the project directory:
+* ruby_lab.rb - This is the ruby template in which you will add code to complete this assignment. You are given some code, do not remove this code unless you are sure of what you are doing. If the tests do not pass due to your modifications, you will lose credit.
+* questions.txt - This is the file in which you will answer identified questions as part of the lab.
+* a_tracks.txt - A small testing data set which is a subset (only tracks with titles starting with "A") derived from the next file.
+* unique_tracks.txt - The million record data set which we will use for the lab.
+
+There are some other files:
+* spec/*spec.rb - These are test files used by RSpec to evaluate your code.
+* .rspec - This indicates to RSpec that this project can be tested
+* Gemfile - provides the specicification of dependencies for this project
+* README.md - this markdown file
 
 This program takes as input the dataset file. For example, I execute the program at the command line as follows:
 
 ```
-$ ruby Griffith.Isaac.ruby_lab.rb unique_tracks.txt
+$ ruby ruby_lab.rb unique_tracks.txt
 ```
 
 This initial template gives code to loop through each line of the file and prints out the line. You probably will not want to keep this line. Remember you use `Ctrl+C` or `Cmd+C` to cancel the execution of the program.
@@ -291,6 +301,8 @@ rspec spec\lab_quest_1_5_spec.rb -o lab_quest_1_5_output.txt
 This lab requires an independent study of the Ruby language. You are encouraged to use any web tutorials and resources to learn this language. Given the size of the class, I will not be able to debug your code for you. **Please do not send panicked emails requesting I fix your bug for you. Allow yourself plenty of time, and use patience, perseverance, and the internet to debug your code.**
 
 # Lab Questions
+The following questions are for feedback and evaluation purposes. Points are awarded for any sincere answer.
+
 These questions should be answered in the questions.txt file.
 
 21. Name something you like about Ruby. Explain.
@@ -298,6 +310,13 @@ These questions should be answered in the questions.txt file.
 23. Did you enjoy this lab? Which aspects did you like and/or dislike?
 24. Approximately how many hours did you spend on this lab?
 25. Do you think you would use Ruby again? For which type(s) of project(s)?
+
+# Grading
+With the exception of questions 10, 14, 15, 16, 19, and 20 questions 1-20 are automatically graded by passing the associated tests. This is all or nothing, either you passed the tests or not. The remaining questions will be graded based on your answers and may receive partial credit. Questions 21 - 25 will be awarded full credit as long as there is a sincere and appropriate answer.
+
+* Questions 1-20 -> 2 points each
+* Questions 21-25 -> 1 points each
+* Comments and Code Style -> 5 points
 
 # Submission
 
