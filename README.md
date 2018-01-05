@@ -8,22 +8,47 @@
 
 # Ruby
 
-For this lab you will be using Ruby.
+For this lab you will be using Ruby. Although Ruby is Hybrid language which combines Scripting, Imperative, Functional, and Object-Oriented concepts, we will be focusing simply on the Scripting and Imperative elements. Thus, solutions utilizing Functional or OO capabilities will be heavily penalized.
+
+You can install ruby using instructions found at the following sites:
+* [Windows](https://rubyinstaller.org/)
+* [Mac](https://www.ruby-lang.org/en/documentation/installation/#homebrew)
+* [Linux](https://www.ruby-lang.org/en/documentation/installation/#apt)
+
+Concepts we will explore as a part of this Lab:
+* Regular Expression -> See this [tutorial](https://regexone.com/) and this [too](http://regexpal.com/)
+* Ruby -> See this [tutorial](https://CSCI305.github.io/tutorials/ruby_tutorial.pdf)
+* Procedural Languages
+
+# *Step -1:* Fork and Clone this Repository
+1. Using the Fork button above fork your own version of this repository.
+2. On your system, use your installation of Git to clone **your fork** of this repo on your local machine.
+3. Once you have the repository cloned, you can continue on.
+
+# *Step 0:* Getting everything ready
+1. Install Bundler
+  ```
+  gem install bundler
+  ```
+2. Install project dependencies (from the project root directory)
+  ```
+  bundler install --binstubs
+  ```
 
 # Dataset
 
-This lab will make use of a dataset containing a million song titles. This dataset is used in various machine learning experiments and is provided by the Laboratory for the Recognition and Organization of Speech and Audio at Columbia University. I have added this dataset to the repository under the name `unieque_tracks.txt`
+This lab will make use of a dataset containing a million song titles. This dataset is used in various machine learning experiments and is provided by the Laboratory for the Recognition and Organization of Speech and Audio at Columbia University. I have added this dataset to the repository under the name `unique_tracks.txt`
 
 In addition, I have created a subset of this dataset containing only song titles that begin with the letter "A". We will use this file for debugging and testing purposes. This can be found in the file `a_tracks.txt`.
 
 # File Templates
 
-First, rename this file to `[LastName].[FirstName].open_lab.rb` for ruby, `[LastName].[FirstName].open_lab.go` for go, and `[LastName].[FirstName].open_lab.py` for python, where `[LastName]` and `[FirstName]` are your last and first names, respectively. Do not include the brackets `[ ]` in your file name. Secondly, edit the header comments int he file to reflect your name.
+First, rename this file to `[LastName].[FirstName].open_lab.rb` for ruby, `[LastName].[FirstName].open_lab.go` for go, and `[LastName].[FirstName].open_lab.py` for python, where `[LastName]` and `[FirstName]` are your last and first names, respectively. Do not include the brackets `[ ]` in your file name. Secondly, edit the header comments in the file to reflect your name.
 
-This program request the dataset file as the argument. For example, I execute the program at the command line as follows:
+This program takes as input the dataset file. For example, I execute the program at the command line as follows:
 
 ```
-$ ruby Griffith.Isaac.open_lab.rb unique_tracks.txt
+$ ruby Griffith.Isaac.ruby_lab.rb unique_tracks.txt
 ```
 
 This initial template gives code to loop through each line of the file and prints out the line. You probably will not want to keep this line. Remember you use `Ctrl+C` or `Cmd+C` to cancel the execution of the program.
@@ -38,7 +63,7 @@ Each line contains a track id, song id, artist name, and the song title, such as
 
 You are only concerned with the last field, the song title. As your first task, you will write a regular expression that extracts the song title and stores it as the variable `title`. You will discard all other information.
 
-You may find this site useful in debugging your regular expression: http://regexpal.com/. It allows you to test your regular expressions on a block of text that your provide.
+You may find this site useful in debugging your regular expression: https://regex101.com/. It allows you to test your regular expressions on a block of text that your provide.
 
 ## *Step 2:* Eliminate superfluous text
 The song title, however, is quite noisy, often containing additional information beyond the song title. Consider this example:
@@ -88,9 +113,21 @@ Convert all words in the sentence to lowercase. Each of these languages has a sp
 # Self-Check
 
 In the `a_tracks` dataset, after all filtering steps, I find 52,760 valid song titles.
- 
+
 N.B.: If you are close to my number (within 10's), that is sufficient. If you are way off (i.e., 100+), you should double check your regular expressions.
- 
+
+This check can be performed using the following command:
+
+On Mac or Linux:
+```
+rspec spec/self_check_1_spec.rb
+```
+
+On Windows:
+```
+rspec spec\self_check_1_spec.rb
+```
+
 # Bi-gram Counts
 
 A bigram is a sequence of two adjacent words in a text. The frequency distribution of bigrams in text(s) is commonly used in statistical natural language processing (see http://en.wikipedia.org/wiki/Bigram). Across this corpus of one million song titles, you will count all the bigram words.
@@ -102,6 +139,18 @@ First, you need to split the title string into individual words. Next, you shoul
 After you build and populate your bigram data structure, you can check yourself.
 
 In the `a_tracks` dataset:
+
+This check can be performed using the following command:
+
+On Mac or Linux:
+```
+rspec spec/self_check_2_spec.rb
+```
+
+On Windows:
+```
+rspec spec\self_check_2_spec.rb
+```
 
 * The most common word to follow **"happy"** is **"now"**
 * The most common word to follow **"sad"** is **"love"**
@@ -118,13 +167,25 @@ Now you are going to use this function to string together a song title. Beginnin
 # Lab Questions
 
 Use your data structure(s) on the `unique_tracks` dataset to answer these and all subsequent Lab Questions.
- 
+
+To answer these questions execute the following command (in the terminal) from the root directory of your project:
+
+On Mac or Linux
+```
+rspec spec/lab_quest_1_5_spec.rb -0 lab_quest_1_5_output.txt
+```
+
+On Windows:
+```
+rspec spec\lab_quest_1_5_spec.rb -o lab_quest_1_5_output.txt
+```
+
 1. Which word most often follows the word **"happy"**?
 2. Which word most often follows the word **"sad"**?
 3. How many different (unique) words follow the word **"computer"**?
 4. Which word most often follows the word **"computer"**?
 5. How many times does this word follow **"computer"**?
- 
+
 # User Control
 Now add loop that repeatedly queries the user for a starting word until they choose to quit. I started it for you in the template. Your program will ask:
 
@@ -138,12 +199,36 @@ For each word entered, use your code above to create a song title of 20 words (o
 
 For the `a_tracks` dataset:
 
+This check can be performed using the following command:
+
+On Mac or Linux:
+```
+rspec spec/self_check_3_spec.rb
+```
+
+On Windows:
+```
+rspec spec\self_check_3_spec.rb
+```
+
 * Using the seed word **"happy"**, you should get the title: `happy now the world of the world of the world of the world of the world of the world of the`
 * Using the seed word **"sad"**, you should get the title: `sad love song for you ready for you ready for you ready for you ready for you ready for you ready`
 * Using the seed word **"computer"**, you should get the title: `computer`
   because no song titles in `a_tracks` contain the word **"computer"**
 
 # Lab Questions
+
+To answer these questions execute the following command (in the terminal) from the root directory of your project, for questions 6-9. Question 10 should be answered in the questions.txt file:
+
+On Mac or Linux
+```
+rspec spec/lab_quest_6_9_spec.rb -0 lab_quest_6_9_output.txt
+```
+
+On Windows:
+```
+rspec spec\lab_quest_6_9_spec.rb -o lab_quest_6_9_output.txt
+```
 
 6. Using the starting word **"happy"**, what song title do you get?
 7. Using the starting word **"sad"**, what song title do you get?
@@ -156,10 +241,22 @@ For the `a_tracks` dataset:
 Next try to fix the aforementioned problem(s) you observed in Question 10. In NLP, stop words are common words that are often filtered out, such as common function words and articles. Before taking your bigram counts, filter out the following common stop words from the song title:
 
 ```
- `a, an, and, by, for, from, in, of, on, or, out, the, to, with`
+ a, an, and, by, for, from, in, of, on, or, out, the, to, with
 ```
 
 # Lab Questions
+
+To answer these questions execute the following command (in the terminal) from the root directory of your project, for questions 11-13. Questions 14 and 15 should be answered the qustions.txt file.:
+
+On Mac or Linux
+```
+rspec spec/lab_quest_11_13_spec.rb -0 lab_quest_11_13_output.txt
+```
+
+On Windows:
+```
+rspec spec\lab_quest_11_13_spec.rb -o lab_quest_11_13_output.txt
+```
 
 11. Using the starting word **"amore"**, what song title do you get?
 12. Using the starting word **"love"**, what song title do you get?
@@ -172,6 +269,17 @@ Next try to fix the aforementioned problem(s) you observed in Question 10. In NL
 Implement a "fix" for the problematic phenomenon you observed in Question 6. If you have successfully solved these problems, you can remove the restriction of 20 words maximum in the song title. (*Hint: If it goes boom, then you have not solved the problem*)
 
 # Lab Questions
+To answer these questions execute the following command (in the terminal) from the root directory of your project, for questions 17 and 18. Questions 16, 19, and 20 should be answered in the questions.txt file.:
+
+On Mac or Linux
+```
+rspec spec/lab_quest_1_5_spec.rb -0 lab_quest_1_5_output.txt
+```
+
+On Windows:
+```
+rspec spec\lab_quest_1_5_spec.rb -o lab_quest_1_5_output.txt
+```
 
 16. Describe in one or two paragraphs your extension and how it fixed the repeating phrase/word problem.
 17. Using the starting word **"montana"**, what song title do you get?
@@ -180,22 +288,28 @@ Implement a "fix" for the problematic phenomenon you observed in Question 6. If 
 20. Share your favorite song title that you have found.
 
 # Troubleshooting
-This lab requires an independent study of one of the three languages specified: Ruby, Go, or Python. You are encouraged to use any web tutorials and resources to learn this language. Given the size of the class, I will not be able to debug your code for you. Please do not send panicked emails requesting I fix your bug for you. Allow yourself plenty of time, and use patience, perseverance, and the internet to debug your code.
+This lab requires an independent study of the Ruby language. You are encouraged to use any web tutorials and resources to learn this language. Given the size of the class, I will not be able to debug your code for you. **Please do not send panicked emails requesting I fix your bug for you. Allow yourself plenty of time, and use patience, perseverance, and the internet to debug your code.**
 
 # Lab Questions
+These questions should be answered in the questions.txt file.
 
 21. Name something you like about Ruby. Explain.
 22. Name something you dislike about Ruby. Explain.
-23. Did you enjoy this lab? Which aspects dis you like and/or dislike?
+23. Did you enjoy this lab? Which aspects did you like and/or dislike?
 24. Approximately how many hours did you spend on this lab?
 25. Do you think you would use Ruby again? For which type(s) of project(s)?
 
 # Submission
 
-Each student will complete and submit this assignment individually or in a two-person team. Do not consult with others. However, you are encouraged to use the internet to learn any aspect of Ruby you need to complete the assignment, but not to answer the questions asked in this lab.
+Each student will complete and submit this assignment individually. Do not consult with others. However, you are encouraged to use the internet to learn any aspect of Ruby you need to complete the assignment, but not to answer the questions asked in this lab.
 
 Comment your program heavily. Intelligent comments and a clean, readable formatting of your code accounts for 20% of your grade.
 
-Save the final version of your program and zip the source code into a file named `[lastname]_[firstname].ruby_lab.zip`. Type your lab questions in plain text as `[lastname]_[firstname].ruby_lab.txt`. Include your name in the text file.
+Save the final version of your program and construct a zip file containing **ONLY** the following items:
+* ruby_lab.rb
+* lab_quest_1_5_output.txt
+* lab_quest_6_9_output.txt
+* lab_quest_11_13_output.txt
+* questions.txt
 
-We must be able to run your program from the command line with no arguments.
+ **Note, I will only accept plain text files for your answers. The submission of PDF, Word, Images, or anything other format except plain text will recevie zero credit.**
