@@ -1,5 +1,5 @@
-#!/usr/bin/ruby
 
+#!/usr/bin/ruby
 ###############################################################
 #
 # CSCI 305 - Ruby Programming Lab
@@ -43,4 +43,6 @@ def main_loop()
 	# Get user input
 end
 
-main_loop()
+if __FILE__==$0
+	main_loop()
+end

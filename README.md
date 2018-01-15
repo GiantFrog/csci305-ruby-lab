@@ -182,7 +182,7 @@ To answer these questions execute the following command (in the terminal) from t
 
 On Mac or Linux
 ```
-rspec spec/lab_quest_1_5_spec.rb -0 lab_quest_1_5_output.txt
+rspec spec/lab_quest_1_5_spec.rb -o lab_quest_1_5_output.txt
 ```
 
 On Windows:
@@ -232,7 +232,7 @@ To answer these questions execute the following command (in the terminal) from t
 
 On Mac or Linux
 ```
-rspec spec/lab_quest_6_9_spec.rb -0 lab_quest_6_9_output.txt
+rspec spec/lab_quest_6_9_spec.rb -o lab_quest_6_9_output.txt
 ```
 
 On Windows:
@@ -260,7 +260,7 @@ To answer these questions execute the following command (in the terminal) from t
 
 On Mac or Linux
 ```
-rspec spec/lab_quest_11_13_spec.rb -0 lab_quest_11_13_output.txt
+rspec spec/lab_quest_11_13_spec.rb -o lab_quest_11_13_output.txt
 ```
 
 On Windows:
@@ -279,17 +279,7 @@ rspec spec\lab_quest_11_13_spec.rb -o lab_quest_11_13_output.txt
 Implement a "fix" for the problematic phenomenon you observed in Question 6. If you have successfully solved these problems, you can remove the restriction of 20 words maximum in the song title. (*Hint: If it goes boom, then you have not solved the problem*)
 
 # Lab Questions
-To answer these questions execute the following command (in the terminal) from the root directory of your project, for questions 17 and 18. Questions 16, 19, and 20 should be answered in the questions.txt file.:
-
-On Mac or Linux
-```
-rspec spec/lab_quest_1_5_spec.rb -0 lab_quest_1_5_output.txt
-```
-
-On Windows:
-```
-rspec spec\lab_quest_1_5_spec.rb -o lab_quest_1_5_output.txt
-```
+Answere the following questions Questions 16 through 20 in the questions.txt file.:
 
 16. Describe in one or two paragraphs your extension and how it fixed the repeating phrase/word problem.
 17. Using the starting word **"montana"**, what song title do you get?
