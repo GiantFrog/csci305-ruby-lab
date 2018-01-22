@@ -17,7 +17,7 @@ You can install ruby using instructions found at the following sites:
 
 Concepts we will explore as a part of this Lab:
 * Regular Expression -> See this [tutorial](https://regexone.com/) and this [too](http://regexpal.com/)
-* Ruby -> See this [tutorial](https://CSCI305.github.io/tutorials/ruby_tutorial.pdf)
+* Ruby -> See this [tutorial](https://www.tutorialspoint.com/ruby/)
 * Procedural Languages
 
 # *Step -1:* Fork and Clone this Repository
