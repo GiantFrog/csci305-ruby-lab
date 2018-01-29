@@ -17,7 +17,7 @@ def process_file(file_name)
 	puts "Processing File.... "
 
 	begin
-		IO.foreach(file_name) do |line|
+		IO.foreach(file_name, encoding: "utf-8") do |line|
 			# do something for each line
 		end
 
