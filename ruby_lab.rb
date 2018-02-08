@@ -4,8 +4,8 @@
 #
 # CSCI 305 - Ruby Programming Lab
 #
-# <firstname> <lastname>
-# <email-address>
+# GiantFrog
+# ***REMOVED***
 #
 ###############################################################
 
@@ -26,6 +26,16 @@ def process_file(file_name)
 		STDERR.puts "Could not open file"
 		exit 4
 	end
+end
+
+# Makes extracted titles readable
+def cleanup_title(title)
+	title.slice!(/.*<SEP>/)				#gets title and tosses all other data
+	title.slice!(/([\(\[\{\\\/_\-:"`+=*]|feat\.).*/)#trims anything off the title after certain symbols
+	title.slice!(/[\?¿!¡.;&@%#\|]/) 		#removes some other symbols
+	title.slice!(/[^\w|\s]/)			#removes everything besides english letters and whitespace, which should
+	title.downcase!					#get rid of the earlier symbols too, but whatever.
+	return title
 end
 
 # Executes the program
