@@ -17,11 +17,11 @@ RSpec.describe "Bigram Counting Self Check" do
     end
 
     it "80 distinct words follow 'love'" do
-      expect($bigrams['love'].length).to eq(80)
+      expect($bigrams[:love].length).to eq(80)
     end
 
     it "'song' follows 'love' 33 times" do
-      expect($bigrams['love']['song']).to eq(33)
+      expect($bigrams[:love][:song]).to eq(33)
     end
   end
 end

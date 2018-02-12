@@ -1,0 +1,20 @@
+[32m.[0m[32m.[0m[31mF[0m
+
+Failures:
+
+  1) Lab Questions Check unique_tracks with stop words removed 13. Song title starting with 'little'
+     [31mFailure/Error: expect(create_title('little').rstrip()).to eq('little girl like you are you are you are you are you are you are you are you are you')[0m
+     [31m[0m
+     [31m  expected: "little girl like you are you are you are you are you are you are you are you are you"[0m
+     [31m       got: "little girl in the world is a little girl in the world is a little girl in the world is"[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [36m# ./spec/lab_quest_11_13_spec.rb:16:in `block (3 levels) in <top (required)>'[0m
+
+Finished in 6.64 seconds (files took 36.57 seconds to load)
+[31m3 examples, 1 failure[0m
+
+Failed examples:
+
+[31mrspec ./spec/lab_quest_11_13_spec.rb:15[0m [36m# Lab Questions Check unique_tracks with stop words removed 13. Song title starting with 'little'[0m
+
