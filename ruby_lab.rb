@@ -17,8 +17,7 @@ def process_file(file_name)
   puts "Processing File.... "
 
   begin
-    #if RUBY_PLATFORM.downcase.include? 'mswin'
-		if true
+    if RUBY_PLATFORM.downcase.include? 'mswin'
       file = File.open(file_name, encoding: "utf-8")
       unless file.eof?
         file.each_line do |line|
@@ -46,20 +45,8 @@ def cleanup_title (title)
 	title.slice!(/.*<SEP>/)                           #gets title and tosses all other data
 	title.slice!(/([\(\[\{\\\/_\-:"`+=*]|feat\.).*/)  #trims anything off the title after certain symbols
 	title.gsub!(/[\?¿\!¡\.;&@%#\|"]/, '') 		  			#removes a couple symbols
-	#title.gsub!(/\ba\b/, '')
-	#title.gsub!(/\ban\b/, '')												#this ugly thing gets rid of stop words
-	#title.gsub!(/\band\b/, '')
-	#title.gsub!(/\bby\b/, '')
-	#title.gsub!(/\bfor\b/, '')
-	title.gsub!('from', '')
-	title.gsub!(/\bin\b/, '')
-	#title.gsub!(/\bof\b/, '')
-	#title.gsub!(/\bon\b/, '')
-	#title.gsub!(/\bor\b/, '')
-	#title.gsub!(/\bout\b/, '')
-	#title.gsub!(/\bthe\b/, '')
-	#title.gsub!(/\bto\b/, '')
-	#title.gsub!(/\bwith\b/, '')
+																										#this ugly thing gets rid of stop words
+	title.gsub!(/\ba\b|\ban\b|\band\b|\bby\b|\bfor\b|\bfrom\b|\bin\b|\bof\b|\bon\b|\bor\b|\bout\b|\bthe\b|\bto\b|\bwith\b/i, ' ')
 
 	if title.match(/[^\w|\s']/)                       #if the title has weird characters, toss it
 		return ''
@@ -76,9 +63,9 @@ def tally_words (words)
 		following = pair[1].to_sym
 
 		unless $bigrams[starting]							#if the word has not been seen before, add a hash for it which defaults to 0
-			$bigrams[starting] = Hash.new(0)		#word on the street is that symbols are faster than strings
+			$bigrams[starting] = Hash.new(0)		#word on the street is that symbols are faster than strings, so I use symbols as keys
 		end
-		$bigrams[starting][following] += 1
+		$bigrams[starting][following] += 1		#now that there is certainly a hash for the word, add a tally!
 	end
 end
 
@@ -104,16 +91,17 @@ end
 def create_title (seed)
 	generated = [seed]										#start with the seed
 
-	while generated.size < 20 do					#unless there are 20 words, keep adding the most common on to the end
-		generated << mcw(generated.last)
-		if generated.last == ''							#if there was no data, break out of the loop
-			generated.pop											#and get rid of the empty entry
-			break
+	loop do 															#no need for a word limit anymore.
+		candidate = mcw(generated.last)
+		if candidate == '' or generated.include? candidate
+			break															#break from the loop if we find no result or if we have already used a word.
+		else
+			generated << candidate						#otherwise, add the word to the list and repeat
 		end
 	end
 
 	title = ''
-	generated.each do |word|
+	generated.each do |word|							#add every generated word to a single string, then return it
 		title << word << ' '
 	end
 	title.chomp!(' ')
@@ -133,7 +121,7 @@ def main_loop()
 	process_file(ARGV[0])
 
 	# Get user input
-	while true
+	loop do
 		puts "Enter a word [Enter 'q' to quit]: "
 		seed = STDIN.gets.chomp
 		if seed == 'q'

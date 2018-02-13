@@ -3,22 +3,24 @@ CSCI-305
 
 10. Many prepositions, such as 'in,' 'under,' and 'of' come up frequently, and they all lead to "the world is a little girl in the world is a little girl in the world" forever. 'You' and 'are' also loop back to each other forever.
 
-14.
+14. Even for uncommon seeds, the next word with the highest tally is almost certainly going to be a common word. Common words will also reference common words, making it pretty likely that a loop shows up, where a common word references something that, if not directly, will eventually reference itself again. Ideally, A degree of randomness would be nice, or something to prohibit the use of the same word twice. As soon as we use a word twice it will certainly loop, unless there is a mcw tie.
 
-15.
+15. 'E' gives you "e flat major op 64 bytes" half the time. 'Large' results in "large pro yacia."
 
-16.
+16. I really wanted to chose the next-best word when the top pick had already been used; however, this lead to two problems: my current setup with mcw and create_title methods would have to be heavily refined or merged into one, and song titles would probably string waaayyy too long after removing the 20-word maximum.
+    I ended up adding a check to my create_title method. Every time we grab the next word to add to the title, we check to see if it is already in the title. If so, we do not add it and instead return what we have so far. This was pretty easy, as I was already checking for mcw to return an empty string in case there were no words to use from the bigram, so I just added an 'or' to my if statement.
 
-19.
+19. 'Marley' always comes after 'Bob,' but it looks like the next best word from there is at least a 4-way tie between 'medley,' 'purt,' 'me,' and 'song.' There may even be more ties further down the chain for those.
 
-20.
+20. Before anti-looping: thunder lightning strikes again again again again again again again again again again again again again again again again again
+    After anti-looping: fridge that's what you are
 
-21.
+21. I like how to-the-point and readable ruby is. Maybe I'm not to the level where simplicity hinders me, but I really like that everything tends to make sense, even if I have never used it before. Gems are also pretty nice and the support is great. I've been able to find lots of APIs and stuff for a personal project of mine. It's so easy to just grab whatever you need from the terminal, I love it.
 
-22.
+22. I feel like the 'end's required at the end of literally everything aren't needed. If you are trying to be as readable as possible, why not use tabs and whitespace instead? I also wish it was a compiled language. Maybe it's just the large data we were working with, but it did seem sluggish, even when just spitting out an answer after all the hard work of creating the bigram was already done.
 
-23.
+23. I did. I wish there was more instruction on the simple, practical things, like using git. But now that I've got it figured out everything is great. I'm very happy we got to use ruby instead of perl! It seems like a much more useful language, and I have a personal project in ruby I started on a whim over winter break, so actually learning how to use the language in this class was a pleasant surprise.
 
-24.
+24. At least 8 hours I can specifically think of, plus some time getting git figured out and everything. And it took a six-hour schoolday of pondering before I realized what was causing my most problematic bug as I was walking home.
 
-25.
+25. Absolutely. I think it is now my language of choice for any little thing I want to do quickly. For everything, actually, because I only know Ruby, C (not ++), and Java.
