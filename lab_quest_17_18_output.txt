@@ -1,0 +1,20 @@
+[32m.[0m[31mF[0m
+
+Failures:
+
+  1) Lab Questions Check Fixed the problem 18. Song title starting with word 'bob'
+     [31mFailure/Error: expect(create_title 'bob').to eq('bob marley song you are')[0m
+     [31m[0m
+     [31m  expected: "bob marley song you are"[0m
+     [31m       got: "bob marley is my heart"[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [36m# ./spec/lab_quest_17_18_spec.rb:13:in `block (3 levels) in <top (required)>'[0m
+
+Finished in 0.53503 seconds (files took 30 seconds to load)
+[31m2 examples, 1 failure[0m
+
+Failed examples:
+
+[31mrspec ./spec/lab_quest_17_18_spec.rb:12[0m [36m# Lab Questions Check Fixed the problem 18. Song title starting with word 'bob'[0m
+
